@@ -341,7 +341,7 @@
             >
               <UserSquare2 size={24} />
             </button>
-          </div>z
+          </div>
 
           <div className="grid grid-cols-3 gap-0.5">
             {displayedPosts.map((post) => (
@@ -352,7 +352,7 @@
               >
                 {post.type === 'video' ? (
                   <video 
-                    src={post.url}  
+                    src={`${post.url}#t=0.1`}  
                     className="w-full h-full object-cover group-hover:opacity-90 transition-opacity pointer-events-none" 
                     preload="metadata"
                     muted
