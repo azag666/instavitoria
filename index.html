@@ -126,6 +126,8 @@
       const [activeTab, setActiveTab] = useState('grid');
       const [selectedPost, setSelectedPost] = useState(null);
       const [isStoryOpen, setIsStoryOpen] = useState(false);
+      const [isFollowing, setIsFollowing] = useState(false);
+      const [showMessageModal, setShowMessageModal] = useState(false);
 
       const handleCloseMiniApp = () => {
         if (window.Telegram && window.Telegram.WebApp) {
@@ -258,7 +260,7 @@
               <ChevronLeft size={28} className="cursor-pointer" onClick={handleCloseMiniApp} />
               <h1 className="text-xl font-bold">{PROFILE_DATA.username}</h1>
             </div>
-            <MoreHorizontal size={24} className="cursor-pointer" />
+            <MoreHorizontal size={24} className="cursor-pointer" onClick={() => setShowMessageModal(true)} />
           </div>
 
           <div className="px-4 pt-2">
@@ -315,10 +317,20 @@
             </div>
 
             <div className="flex gap-2 mb-6">
-              <button className="flex-1 bg-[#005CFF] hover:bg-blue-600 text-white font-semibold py-1.5 rounded-lg text-sm transition-colors">
-                Seguir
+              <button 
+                onClick={() => setIsFollowing(!isFollowing)}
+                className={`flex-1 font-semibold py-1.5 rounded-lg text-sm transition-colors ${
+                  isFollowing 
+                    ? 'bg-[#262626] hover:bg-[#333333] text-white' 
+                    : 'bg-[#005CFF] hover:bg-blue-600 text-white'
+                }`}
+              >
+                {isFollowing ? 'Seguindo' : 'Seguir'}
               </button>
-              <button className="flex-1 bg-[#262626] hover:bg-[#333333] text-white font-semibold py-1.5 rounded-lg text-sm transition-colors">
+              <button 
+                onClick={() => setShowMessageModal(true)}
+                className="flex-1 bg-[#262626] hover:bg-[#333333] text-white font-semibold py-1.5 rounded-lg text-sm transition-colors"
+              >
                 Mensagem
               </button>
             </div>
@@ -388,6 +400,36 @@
               </div>
             ))}
           </div>
+
+          {/* Modal de Mensagem / VIP */}
+          {showMessageModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <div className="absolute inset-0 bg-black/80" onClick={() => setShowMessageModal(false)}></div>
+              <div className="bg-[#262626] rounded-xl w-full max-w-sm p-6 text-center shadow-2xl border border-gray-800 relative z-10">
+                <button 
+                  onClick={() => setShowMessageModal(false)}
+                  className="absolute top-3 right-3 text-gray-400 hover:text-white transition-colors"
+                >
+                  <X size={20} />
+                </button>
+                <div className="mx-auto w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
+                  <MessageCircle size={24} className="text-[#005CFF]" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">Modelo Verificada ✨</h3>
+                <p className="text-sm text-gray-300 mb-6">
+                  O chat privado é liberado apenas para assinantes do VIP. Acesse o link para desbloquear o chat exclusivo e muito mais! 🔥
+                </p>
+                <a 
+                  href={PROFILE_DATA.link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-[#005CFF] hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition-colors"
+                >
+                  Acessar VIP agora
+                </a>
+              </div>
+            </div>
+          )}
 
         </div>
       );
