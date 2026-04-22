@@ -252,43 +252,57 @@
 
                     <h3 class="text-sm font-semibold text-of-gray uppercase tracking-wider mb-3">Escolha seu acesso</h3>
                     
+                    <!-- NOVOS PACOTES AQUI -->
                     <div class="flex flex-col gap-3">
-                        <label class="relative flex items-center p-4 border rounded-xl cursor-pointer transition-all duration-200 border-of-blue bg-blue-50/50" id="card-fixed">
-                            <input type="radio" name="package" value="fixed" class="peer hidden" checked onchange="updateSelection()">
-                            <div class="absolute -top-2.5 left-4 bg-of-blue text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
-                                Acesso Único
-                            </div>
+                        
+                        <!-- Pacote Básico -->
+                        <label class="relative flex items-center p-4 rounded-xl cursor-pointer transition-all duration-200" id="card-basic">
+                            <input type="radio" name="package" value="basic" class="peer hidden" onchange="updateSelection()">
                             <div class="flex-1">
-                                <h4 class="font-bold text-base">PACK VIP</h4>
-                                <p class="text-xs text-of-gray mt-0.5">Desbloqueio imediato de todo o conteúdo sem censura.</p>
+                                <h4 class="font-bold text-base text-gray-800">Pacote Básico</h4>
+                                <p class="text-xs text-of-gray mt-0.5">15 Vídeos e 25 Fotos.</p>
                             </div>
                             <div class="text-right pr-6">
-                                <span class="font-bold text-lg text-of-blue">R$ 16,99</span>
+                                <span class="font-bold text-lg text-gray-600">R$ 19,99</span>
                             </div>
-                            <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 border-of-blue bg-of-blue flex items-center justify-center transition-all" id="check-fixed">
-                                <i class="fa-solid fa-check text-white text-[10px] opacity-100" id="icon-fixed"></i>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all" id="check-basic">
+                                <i class="fa-solid fa-check text-white text-[10px] opacity-0" id="icon-basic"></i>
                             </div>
                         </label>
 
-                        <label class="relative flex flex-col p-4 border rounded-xl cursor-pointer transition-all duration-200 border-of-border bg-white" id="card-custom">
-                            <div class="flex items-center w-full">
-                                <input type="radio" name="package" value="custom" class="peer hidden" onchange="updateSelection()">
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-base">Escolher Valor como Presente ❤️</h4>
-                                    <p class="text-xs text-of-gray mt-0.5">Escolha o valor que deseja enviar via PIX.</p>
-                                </div>
-                                <div class="absolute right-4 top-4 w-5 h-5 rounded-full border-2 border-of-border flex items-center justify-center transition-all" id="check-custom">
-                                    <i class="fa-solid fa-check text-white text-[10px] opacity-0" id="icon-custom"></i>
-                                </div>
+                        <!-- Pacote Premium (Destacado) -->
+                        <label class="relative flex items-center p-4 rounded-xl cursor-pointer transition-all duration-200" id="card-premium">
+                            <input type="radio" name="package" value="premium" class="peer hidden" checked onchange="updateSelection()">
+                            <div class="absolute -top-3 left-4 bg-gradient-to-r from-orange-400 to-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase shadow-sm flex items-center gap-1">
+                                <i class="fa-solid fa-fire"></i> Mais Escolhido
                             </div>
-                            
-                            <div id="custom-inputs" class="hidden mt-4 pt-4 border-t border-blue-100 flex gap-2 items-center">
-                                <div class="flex-1 relative">
-                                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-of-gray font-bold text-sm">R$</span>
-                                    <input type="number" id="input-brl" placeholder="0.00" min="5" step="1" class="w-full pl-9 pr-2 py-2.5 bg-white border border-gray-300 rounded-lg text-sm font-bold text-of-text outline-none focus:border-of-blue focus:ring-1 focus:ring-of-blue transition-all" oninput="handleCustomInput()">
-                                </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-base text-of-blue">Pacote Premium</h4>
+                                <p class="text-xs text-of-gray mt-0.5">55 Vídeos e 75 Fotos.</p>
+                            </div>
+                            <div class="text-right pr-6">
+                                <span class="font-black text-xl text-of-blue">R$ 24,99</span>
+                            </div>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all" id="check-premium">
+                                <i class="fa-solid fa-check text-white text-[10px] opacity-100" id="icon-premium"></i>
                             </div>
                         </label>
+
+                        <!-- Pacote VIP + Chamada -->
+                        <label class="relative flex items-center p-4 rounded-xl cursor-pointer transition-all duration-200" id="card-vip">
+                            <input type="radio" name="package" value="vip" class="peer hidden" onchange="updateSelection()">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-base text-purple-700">VIP + Chamada Vídeo</h4>
+                                <p class="text-xs text-of-gray mt-0.5 leading-tight">100 Vídeos, 250 Fotos <br>+ WhatsApp Pessoal.</p>
+                            </div>
+                            <div class="text-right pr-6">
+                                <span class="font-bold text-lg text-purple-600">R$ 35,00</span>
+                            </div>
+                            <div class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all" id="check-vip">
+                                <i class="fa-solid fa-check text-white text-[10px] opacity-0" id="icon-vip"></i>
+                            </div>
+                        </label>
+
                     </div>
                 </div>
 
@@ -305,7 +319,7 @@
             <div class="absolute bottom-0 left-0 w-full bg-white border-t border-gray-200 p-4 shadow-up z-40">
                 <button onclick="processCheckout()" class="w-full bg-of-blue hover:bg-of-darkBlue active:scale-[0.98] text-white rounded-full py-3.5 px-4 font-bold text-lg transition-all flex items-center justify-center gap-2 btn-pulse">
                     <i class="fa-brands fa-pix text-xl mr-1"></i>
-                    <span id="cta-text">Pagar R$ 16,99 no PIX</span>
+                    <span id="cta-text">Pagar R$ 24,99 no PIX</span>
                 </button>
             </div>
 
@@ -357,39 +371,41 @@
                 </div>
             </div>
 
+            <!-- PRIMEIRO MODAL EXIT (Desconto VIP) -->
             <div id="back-redirect-overlay" class="fixed inset-0 bg-black/80 z-[200] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm flex items-center justify-center p-4">
                 <div class="bg-white rounded-[2rem] p-6 text-center max-w-sm w-full shadow-2xl scale-up relative overflow-hidden">
-                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-of-blue opacity-10 rounded-full blur-2xl"></div>
-                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-of-blue opacity-10 rounded-full blur-2xl"></div>
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-500 opacity-10 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500 opacity-10 rounded-full blur-2xl"></div>
                     <div class="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white shadow-sm relative z-10">
                          <i class="fa-solid fa-gift text-2xl animate-bounce"></i>
                     </div>
                     <h2 class="text-2xl font-black text-of-text uppercase mb-2 tracking-tighter relative z-10">ESPERE! NÃO VÁ!</h2>
-                    <p class="text-of-gray text-sm mb-5 leading-relaxed relative z-10">Você vai mesmo perder todo o conteúdo restrito? Liberamos um <strong class="text-of-blue">DESCONTO ÚNICO</strong> para você entrar agora mesmo.</p>
-                    <div class="bg-blue-50 border-2 border-dashed border-of-blue rounded-2xl p-4 mb-5 relative z-10">
-                        <p class="text-xs text-of-gray uppercase font-bold tracking-wider mb-1">Acesso VIP Promocional</p>
+                    <p class="text-of-gray text-sm mb-5 leading-relaxed relative z-10">Você vai mesmo perder meu WhatsApp Pessoal? Liberamos um <strong class="text-purple-600">DESCONTO ÚNICO</strong> para você entrar no VIP agora mesmo.</p>
+                    <div class="bg-purple-50 border-2 border-dashed border-purple-500 rounded-2xl p-4 mb-5 relative z-10">
+                        <p class="text-xs text-purple-600 uppercase font-bold tracking-wider mb-1">Acesso VIP + Chamada</p>
                         <div class="flex items-center justify-center gap-3">
-                            <p class="text-gray-400 line-through font-semibold text-sm">R$ 16,99</p>
-                            <p class="text-3xl font-black text-of-blue tracking-tighter">R$ 9,99</p>
+                            <p class="text-gray-400 line-through font-semibold text-sm">R$ 35,00</p>
+                            <p class="text-3xl font-black text-purple-600 tracking-tighter">R$ 25,00</p>
                         </div>
                     </div>
-                    <button onclick="applyDiscountAndBuy(1)" class="w-full bg-of-blue hover:bg-of-darkBlue text-white font-black py-4 rounded-xl text-lg uppercase tracking-wide mb-3 btn-pulse shadow-lg relative z-10">QUERO MEU DESCONTO</button>
+                    <button onclick="applyDiscountAndBuy(1)" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-black py-4 rounded-xl text-lg uppercase tracking-wide mb-3 btn-pulse shadow-lg relative z-10">QUERO MEU DESCONTO VIP</button>
                     <button onclick="showSecondBackRedirect()" class="text-of-gray text-xs uppercase underline tracking-wider font-semibold opacity-70 hover:opacity-100 transition-opacity relative z-10">Não, prefiro sair e perder tudo</button>
                 </div>
             </div>
 
+            <!-- SEGUNDO MODAL EXIT (Desconto Premium) -->
             <div id="second-back-redirect-overlay" class="fixed inset-0 bg-black/80 z-[210] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm flex items-center justify-center p-4">
                 <div class="bg-white rounded-[2rem] p-6 text-center max-w-sm w-full shadow-2xl scale-up relative overflow-hidden">
                     <div class="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white shadow-sm relative z-10">
                          <i class="fa-solid fa-triangle-exclamation text-2xl animate-pulse"></i>
                     </div>
                     <h2 class="text-2xl font-black text-of-text uppercase mb-2 tracking-tighter relative z-10">ÚLTIMA CHANCE!</h2>
-                    <p class="text-of-gray text-sm mb-5 leading-relaxed relative z-10">Ok, eu realmente quero que você veja esse conteúdo. Vou liberar pelo <strong class="text-red-500">MENOR PREÇO POSSÍVEL</strong>. É pegar ou largar!</p>
+                    <p class="text-of-gray text-sm mb-5 leading-relaxed relative z-10">Ok, eu realmente quero que você veja esse conteúdo. Vou liberar o <strong class="text-red-500">PACOTE PREMIUM</strong> pelo menor preço. É pegar ou largar!</p>
                     <div class="bg-red-50 border-2 border-dashed border-red-500 rounded-2xl p-4 mb-5 relative z-10">
-                        <p class="text-xs text-red-500 uppercase font-bold tracking-wider mb-1">Acesso VIP Extremo</p>
+                        <p class="text-xs text-red-500 uppercase font-bold tracking-wider mb-1">Acesso Premium Promocional</p>
                         <div class="flex items-center justify-center gap-3">
-                            <p class="text-gray-400 line-through font-semibold text-sm">R$ 9,99</p>
-                            <p class="text-3xl font-black text-red-600 tracking-tighter">R$ 4,99</p>
+                            <p class="text-gray-400 line-through font-semibold text-sm">R$ 24,99</p>
+                            <p class="text-3xl font-black text-red-600 tracking-tighter">R$ 9,99</p>
                         </div>
                     </div>
                     <button onclick="applyDiscountAndBuy(2)" class="w-full bg-red-600 hover:bg-red-700 text-white font-black py-4 rounded-xl text-lg uppercase tracking-wide mb-3 btn-pulse shadow-lg relative z-10">ACEITAR ÚLTIMA OFERTA</button>
@@ -819,13 +835,12 @@
         const PUSHINPAY_API_URL = 'https://api.pushinpay.com.br/api';
         const PUSHINPAY_TOKEN = '63870|0NFpiGh89fCg4FDeU7KnfqqqUdnEKvxeuZ4LLHGv13fd7d0c';
         
-        const PRICES = { fixed: 16.99, discount1: 9.99, discount2: 4.99 };
-        const PACKAGES = ['fixed', 'custom'];
+        const PRICES = { basic: 19.99, premium: 24.99, vip: 35.00, discount1: 25.00, discount2: 9.99 };
+        const PACKAGES = ['basic', 'premium', 'vip'];
 
-        let currentPkg = 'fixed';
+        let currentPkg = 'premium'; // Padrão agora é o premium
         let pixPollingInterval = null;
         let currentTransactionId = null;
-        let customPriceBRL = 50; 
         let offerShown = false; 
 
         // FUNÇÃO QUE FAZ A TROCA PARA O CHECKOUT
@@ -890,7 +905,7 @@
                 
                 container.addEventListener('click', () => {
                     if (isLocked) {
-                        document.getElementById('card-fixed').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        document.getElementById('card-premium').scrollIntoView({ behavior: 'smooth', block: 'center' });
                         return;
                     }
                     if (!hasPlayed) {
@@ -987,14 +1002,6 @@
             processCheckout(); 
         }
 
-        function handleCustomInput() {
-            const brlInput = document.getElementById('input-brl');
-            let val = parseFloat(brlInput.value);
-            if (isNaN(val) || val < 0) val = 0;
-            customPriceBRL = val;
-            updateCTAButton();
-        }
-
         function updateSelection() {
             const selectedRadio = document.querySelector('input[name="package"]:checked');
             if (selectedRadio) currentPkg = selectedRadio.value;
@@ -1003,49 +1010,55 @@
                 const card = document.getElementById(`card-${pkg}`);
                 const check = document.getElementById(`check-${pkg}`);
                 const icon = document.getElementById(`icon-${pkg}`);
-                const isCustom = pkg === 'custom';
                 if(!card) return;
 
-                card.className = "relative flex items-center p-4 border rounded-xl cursor-pointer transition-all duration-200 border-of-border bg-white" + (isCustom ? " flex-col" : " pr-6");
-                check.className = "absolute border-2 border-of-border flex items-center justify-center transition-all " + (isCustom ? "right-4 top-4 w-5 h-5 rounded-full" : "right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full");
+                // Estilos base comuns
+                let baseCardClasses = "relative flex items-center p-4 rounded-xl cursor-pointer transition-all duration-200 ";
+                let baseCheckClasses = "absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ";
+                
                 icon.classList.replace('opacity-100', 'opacity-0');
-                if (isCustom) document.getElementById('custom-inputs').classList.add('hidden');
 
                 if (currentPkg === pkg) {
-                    card.classList.replace('border-of-border', 'border-of-blue');
-                    card.classList.replace('bg-white', 'bg-blue-50/50');
-                    check.classList.replace('border-of-border', 'border-of-blue');
-                    check.classList.add('bg-of-blue');
+                    // ESTADO: SELECIONADO
+                    if (pkg === 'premium') {
+                        card.className = baseCardClasses + "border-2 border-of-blue bg-blue-50/50 transform scale-[1.02] shadow-md";
+                        check.className = baseCheckClasses + "border-of-blue bg-of-blue";
+                    } else if (pkg === 'vip') {
+                        card.className = baseCardClasses + "border-2 border-purple-500 bg-purple-50/50";
+                        check.className = baseCheckClasses + "border-purple-500 bg-purple-500";
+                    } else { // basic
+                        card.className = baseCardClasses + "border-2 border-gray-400 bg-gray-50";
+                        check.className = baseCheckClasses + "border-gray-600 bg-gray-600";
+                    }
                     icon.classList.replace('opacity-0', 'opacity-100');
-                    
-                    if (isCustom) {
-                        document.getElementById('custom-inputs').classList.remove('hidden');
-                        document.getElementById('custom-inputs').classList.add('flex');
-                        const brlInput = document.getElementById('input-brl');
-                        if (!brlInput.value) {
-                            brlInput.value = customPriceBRL;
-                            handleCustomInput();
-                        }
+                } else {
+                    // ESTADO: NÃO SELECIONADO
+                    if (pkg === 'premium') {
+                        card.className = baseCardClasses + "border border-gray-300 bg-white shadow-sm";
+                        check.className = baseCheckClasses + "border-gray-300";
+                    } else {
+                        card.className = baseCardClasses + "border border-gray-200 bg-white";
+                        check.className = baseCheckClasses + "border-gray-300";
                     }
                 }
             });
+            
             updateCTAButton();
         }
 
         function updateCTAButton() {
-            const brlPrice = currentPkg === 'custom' ? customPriceBRL : PRICES[currentPkg];
+            const brlPrice = PRICES[currentPkg];
             const ctaBtn = document.getElementById('cta-text');
-            if (brlPrice <= 0) {
-                ctaBtn.innerHTML = `Insira um valor`;
-                return;
-            }
+            
+            if (brlPrice <= 0) return;
+            
             ctaBtn.innerHTML = `Pagar R$ ${brlPrice.toFixed(2).replace('.', ',')} no PIX`;
             document.getElementById('pix-modal-total').innerText = `R$ ${brlPrice.toFixed(2).replace('.', ',')}`;
         }
 
         async function processCheckout() {
-            const brlPrice = currentPkg === 'custom' ? customPriceBRL : PRICES[currentPkg];
-            if (brlPrice <= 0) return alert("Por favor, insira um valor válido.");
+            const brlPrice = PRICES[currentPkg];
+            if (brlPrice <= 0) return alert("Por favor, selecione um pacote.");
 
             const btnSpan = document.getElementById('cta-text');
             const originalText = btnSpan.innerHTML;
@@ -1071,7 +1084,7 @@
                     document.getElementById('pix-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(pixCode)}`;
                     currentTransactionId = data.id;
                     openPixModal();
-                    startPixPolling();
+                    // startPixPolling(); // A função de polling foi comentada/removida no script base
                 }
             } catch (error) {
                 alert("Erro ao processar o pagamento. Tente novamente em instantes.");
